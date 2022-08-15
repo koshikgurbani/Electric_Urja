@@ -1,0 +1,149 @@
+<%- include('header') %>
+
+<% var pos=0,i=0 %>
+<% invoices.forEach(tocheck); %>
+<% function tocheck(invoice){%>
+  <% if(invoice.cust_id == customer.cust_id){%>
+      <%  pos=i; %>
+  <% }%>
+  <% i=i+1; %>
+<% }; %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+      <img src="/docs/4.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-top">
+      <%=customer.cust_id%>
+  </a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+    <ul class="nav justify-content-center>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/customer"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Home</a>');
+        </script>
+      </li>
+
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/cust"+val;
+          document.write('<a class="nav-link" href="' + loc + '">My Profile</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/feed"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Feedback</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/reset"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Reset Password</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="card cardb text-white  mb-3 box1" style="max-width: 15rem;">
+  <div class="card-header">Current Reading</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].present_reading %></h5>
+  </div>
+</div>
+
+<div class="card cardb text-white  mb-3 box1" style="max-width: 15rem;">
+  <div class="card-header">Units Consumed</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].consumption_unit %></h5>
+  </div>
+</div>
+
+<div class="card cardb text-white  mb-3 box2" style="max-width: 15rem;">
+  <div class="card-header">Current Bill</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].current_bill%></h5>
+  </div>
+</div>
+
+<div class="card cardb text-white  mb-3 box3" style="max-width: 15rem;">
+  <div class="card-header">Bill Due</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].prev_bill%></h5>
+  </div>
+</div>
+
+
+
+<div class="card cardb text-white  mb-3 box3" style="max-width: 15rem;">
+  <div class="card-header">Rate</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].rate%></h5>
+  </div>
+</div>
+
+<div class="card cardb text-white  mb-3 box3" style="max-width: 15rem;">
+  <div class="card-header">Fine</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].fine%></h5>
+  </div>
+</div>
+
+
+<div class="card cardb text-white  mb-3 box4 text-center" style="max-width: 18rem;">
+  <div class="card-header">Total Bill</div>
+  <div class="card-body">
+    <h5 class="card-title"><%=invoices[pos].total_balance%></h5>
+    <script>
+      var val = '<%=customer.mobile_no%>';
+      var loc="/checkout"+val;
+      document.write('<a class="btn btn-primary bdrad" href="' + loc + '">Checkout</a>');
+    </script>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="container">
+<div class="row">
+<table class="table table-dark">
+<thead>
+<tr>
+<th scope="col"></th>
+<th scope="col">Unit Used</th>
+<th scope="col">Current Bill</th>
+<th scope="col">Bill Due</th>
+<th scope="col">Total Bill</th>
+</tr>
+</thead>
+</table> -->
+
+<!-- <table class="table table-dark">
+<thead>
+<tr>
+<th scope="col">1323</th>
+<th scope="col">234.23</th>
+<th scope="col">234.00</th>
+<th scope="col">0.0</th>
+<th scope="col">234.0</th>
+</tr>
+</thead>
+</table>
+</div> -->
+
+
+
+
+
+
+<%- include('footer') %>

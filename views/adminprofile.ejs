@@ -1,0 +1,89 @@
+<%- include('header') %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+      <img src="/docs/4.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-top">
+      <%=admin.admin_id%>
+  </a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+    <ul class="nav justify-content-center>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/admin"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Home</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/adm"+val;
+          document.write('<a class="nav-link" href="' + loc + '">My Profile</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/all"+val;
+          document.write('<a class="nav-link" href="' + loc + '">All Feedbacks</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/change"+val;
+          document.write('<a class="nav-link" href="' + loc + '">All bills</a>');
+        </script>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="centered">
+  <div class="container">
+    <h1 class="colour"><strong><%=admin.admin_name%></strong></h1>
+    <div class="row g-2">
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5> Admin Id</h5>
+          <p><%=admin.admin_id%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Mobile No</h5>
+          <p><%=admin.login_id%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Email</h5>
+          <p><%=admin.email_id%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Password</h5>
+          <p><%=admin.password%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="card text-white bg-secondary mb-3 box4 text-center" style="max-width: 20rem;">
+  <div class="card-header">Total Bill</div>
+  <div class="card-body">
+    <h5 class="card-title">Secondary card title</h5>
+    <a href="#" class="btn btn-primary">Pay</a>
+  </div>
+</div> -->
+
+
+<%- include('footer') %>

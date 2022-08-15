@@ -1,0 +1,73 @@
+<%- include('header') %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+      <img src="public/images/tower (1).png" alt="" width="30" height="24" class="d-inline-block align-top">
+      <%=admin.admin_id%>
+  </a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+    <ul class="nav justify-content-center>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/admin"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Home</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/adm"+val;
+          document.write('<a class="nav-link" href="' + loc + '">My Profile</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/all"+val;
+          document.write('<a class="nav-link" href="' + loc + '">All Feedbacks</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=admin.login_id%>';
+          var loc="/change"+val;
+          document.write('<a class="nav-link" href="' + loc + '">All bills</a>');
+        </script>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+  <% function myfunction(customer){%>
+    <div class="card cardbb text-white mb-3" style="max-width: 18rem;">
+      <div class="card-header"><%=customer.cust_name%></div>
+        <div class="card-body">
+          <p class="card-title"><%=customer.mobile_no%></h5>
+          <p class="card-text"><%=customer.email_id%></p>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
+<div>
+  <h1 class="centered colour">All customers</h1>
+  <% customers.forEach(myfunction);%>
+</div>
+
+
+<!-- <div class="card text-white bg-secondary mb-3 box4 text-center" style="max-width: 20rem;">
+  <div class="card-header">Total Bill</div>
+  <div class="card-body">
+    <h5 class="card-title">Secondary card title</h5>
+    <a href="#" class="btn btn-primary">Pay</a>
+  </div>
+</div> -->
+
+
+<%- include('footer') %>

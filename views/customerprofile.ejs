@@ -1,0 +1,141 @@
+<!-- <h1> you are at customer profile page of customer<%=customer.mobile_no%></h1> -->
+
+<%- include('header') %>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+      <img src="/docs/4.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-top">
+      <%=customer.cust_id%>
+  </a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+    <ul class="nav justify-content-center>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/customer"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Home</a>');
+        </script>
+      </li>
+
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/cust"+val;
+          document.write('<a class="nav-link" href="' + loc + '">My Profile</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/feed"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Feedback</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/reset"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Reset Password</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="centered">
+  <div class="container">
+    <h1 class="colour"><strong><%=customer.cust_name%></strong></h1>
+    <div class="row g-2">
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Customer Id</h5>
+          <p><%=customer.cust_id%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Mobile No</h5>
+          <p><%=customer.mobile_no%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Email</h5>
+          <p><%=customer.email_id%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Password</h5>
+          <p><%=customer.password%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>City</h5>
+          <p><%=customer.city%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>State</h5>
+          <p><%=customer.state%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Address</h5>
+          <p><%=customer.address%></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border colour2">
+          <h5>Pincode</h5>
+          <p><%=customer.pincode%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>
+
+<!-- <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">User information</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                <strong>Cyruxx</strong><br>
+                <table class="table table-user-information">
+                    <tbody>
+                    <tr>
+                        <td>User level:</td>
+                        <td>Administrator</td>
+                    </tr>
+                    <tr>
+                        <td>Registered since:</td>
+                        <td>11/12/2013</td>
+                    </tr>
+                    <tr>
+                        <td>Topics</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>Warnings</td>
+                        <td>0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,53 @@
+// var sql1 = "create database elecdb";
+// con.query(sql1,function(err, result){
+//   if(err){
+//     console.log(err);
+//   }
+//   console.log("Database created");
+// });
+var sql2 = "create table customers(cust_id int(10) PRIMARY KEY auto_increment, cust_name varchar(25), address varchar(100), state varchar(25), city varchar(25), pincode varchar(10), email_id varchar(25), password varchar(25), status varchar(10))";
+con.query(sql2,function(err, result){
+  if(err){
+    console.log(err);
+  }
+  console.log("Table created");
+});
+var sql3 = "create table admin(admin_id int(10) PRIMARY KEY auto_increment, admin_name varchar(25), login_id varchar(25), password varchar(25), status varchar(10))";
+con.query(sql3,function(err, result){
+   if(err){
+     console.log(err);
+   }
+   console.log("Admin table created");
+});
+var sql4 = "create table account(account_id int(10) PRIMARY KEY auto_increment, cust_id int(10), account_no varchar(25), name varchar(25), address varchar(100), rr_number varchar(25), status varchar(10), FOREIGN KEY (cust_id) REFERENCES customers(cust_id) on delete cascade)";
+con.query(sql4,function(err, result){
+   if(err){
+     console.log(err);
+   }
+   console.log("Account table created");
+});
+var sql5 = "create table billing(bill_no int(10) PRIMARY KEY auto_increment, cust_id int(10), account_id int(10), payment_mode varchar(25), payment_date date, payment_time time, rr_number varchar(25), bill_amount numeric(10,2), paid_amount numeric(10,2), excess_paid numeric(10,2), status varchar(50), FOREIGN KEY (cust_id) REFERENCES customers(cust_id) on delete cascade, FOREIGN KEY (account_id) REFERENCES account(account_id) on delete cascade)";
+con.query(sql5,function(err, result){
+   if(err){
+     console.log(err);
+   }
+   console.log("Billing table created");
+});
+var sql6 = "create table feedback(feedback_id int(10) PRIMARY KEY auto_increment, cust_id int(10), feedback varchar(200), feedback_date date, status varchar(10), FOREIGN KEY (cust_id) REFERENCES customers(cust_id) on delete cascade)";
+con.query(sql6,function(err, result){
+   if(err){
+     console.log(err);
+   }
+   console.log("Feedback table created");
+});
+
+
+var sql7 = "insert into customers (cust_name, address, state, city, pincode, email_id, password, status) values("+"\""+req.body.name+"\", \""+req.body.address+"\", \""+req.body.state+"\", \""+req.body.city+"\", \""+req.body.pincode+"\", \""+req.body.email+"\", \""+req.body.password+"\", \"Activated\")";
+con.query(sql7,function(err,result){
+  if(err){
+    console.log(err);
+  }
+  else{
+    console.log("Added coustomer with cust_id: "+result.insertId);
+  }
+});

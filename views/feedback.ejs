@@ -1,0 +1,75 @@
+<%- include('header') %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+      <img src="/docs/4.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-top">
+      <%=customer.cust_id%>
+  </a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+    <ul class="nav justify-content-center>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/customer"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Home</a>');
+        </script>
+      </li>
+
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/cust"+val;
+          document.write('<a class="nav-link" href="' + loc + '">My Profile</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/feed"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Feedback</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <script>
+          var val = '<%=customer.mobile_no%>';
+          var loc="/reset"+val;
+          document.write('<a class="nav-link" href="' + loc + '">Reset Password</a>');
+        </script>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Log Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <form action="/feedback" method="POST">
+            <input type="hidden" name="cust_id" value="<%=customer.cust_id%>">
+            <input type="hidden" name="mobile" value="<%=customer.mobile_no%>">
+            <div class="form-group">
+              <label for="feedback">Your Feedback</label>
+              <textarea class="form-control" name="feedback" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<%- include('footer') %>
